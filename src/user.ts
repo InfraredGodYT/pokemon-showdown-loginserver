@@ -132,7 +132,7 @@ export class Session {
 		return result?.['regcount'] || 0;
 	}
 	async addUser(username: string, password: string) {
-		const hash = await bcrypt.hash(password, Config.passwordSalt);
+		const hash = await bcrypt.hash(password, Config.passwordSalt || 10);
 		const userid = toID(username);
 		const ip = this.context.getIp();
 

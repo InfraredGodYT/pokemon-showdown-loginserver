@@ -48,7 +48,7 @@ exports.routes = {
 /** @type {string} */
 exports.mainserver = 'showdown';
 /** @type {string} */
-exports.serverlist = '/var/www/html/play.pokemonshowdown.com/config/servers.inc.php';
+exports.serverlist = "/var/www/RC-Showdown/loginserver/config/servers.inc.php";
 /** @type {string | null} */
 exports.colorpath = null;
 /** @type {string | null} */
@@ -59,7 +59,7 @@ exports.devmode = null;
 
 // absolute path to your PS instance. can use the checked-out client that the client clones in.
 /** @type {string} */
-exports.pspath = '/var/www/html/play.pokemonshowdown.com/data/pokemon-showdown';
+exports.pspath = "/var/www/RC-Showdown/server";
 
 /**
  * Custom SID maker.
@@ -75,7 +75,7 @@ exports.autolockip = [];
 exports.compromisedkeys = [];
 /** proxies to trust x-forwarded-for from
  * @type {string[]} */
-exports.trustedproxies = [];
+exports.trustedproxies = ['127.0.0.1'];
 
 /**
     * [Places to allow cors requests from, prefix to use][]
@@ -98,10 +98,40 @@ exports.sysops = [];
 
 // Private key to use for validating assertions.
 /** @type {string} */
-exports.privatekey = '';
-// current active challengekeyid (backwards compatibility)
+exports.privatekey = `-----BEGIN PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCwn4dRjyK3OLzs
+05+zG/NdrlZA/s+ZBMKY9XgohTqvY345ySB1bam8SuJqnf15TQZiydJC4HOIuwEZ
+WD+gkmohdojzdHmhanC/nBHuIJyRpM3H9hu3YmZRwyhB7tsz0Pw44GizVCuWQLSP
+LV7F/j2l2TKSoVg1obCqlGn9rAb4vN0Pe3wiY8u2nQzEOk6Kr9YmSMoWO5qm7p0a
+EQTExI8JSGJjZw1Y/f0JT8s8dm0wh7lPzlCH60MRCRtxQpO524Ztnr1hQnrywP4L
+W/NBH6rjiVYiKlhNvFqdMTanUObIUP3JyVHU+ddBn2PIVkA4l3Votm4s1MwNSsbF
+cYfptmorAgMBAAECggEAOyYZn5cjRZ/DKT6Px2AvZqqZKSgMZs7Ayo++HzfK2Oyl
+W32/GIRSqQOdAp6JQeOpJVE4UHwxRNN3gUDcAg62ayFyqLFTgFqQiqKeIJScSmwa
+HAKP8qCJ6ozEQRxYHWi55uREO/YOqMFflmlXyU+k3pM3zAIrc76D1wRf4HuJVCgA
+1r7PAtFoPSKZP3u1xWYiVER2juL1wB+AQv4JQQ3ZHygSCJFNsVCV+bDj9NQ38wkl
+YP5WJers9OxVq/iCFmSD5QPJipaa5DvqyE/ZGncJzx5Pb4+AVN9sjSoWuuL/wE3N
+yJnmRmNIsbe52CSNg8dRpr0v1kwpPtA7k6hwg5sPOQKBgQDHFdCF/GAljHuirSMf
+JCokRVZvhTwoPSsmMSJfuKB2a117ygkJHk69lD5sTpYstmbBis0ay6QiKGjtR4jf
+gGaUk0Es6hfozKySrGUbkxx1Fmt24fjoGCRpE5QQsVfsMpvxob+VPyEJ+5In9HcR
+QwQsi1N0pswdeKoZOBmxmBfPSQKBgQDjHdA+PlFMB2t1ydbNOL3KiDmzK14SNjF0
+EdpCNzK9DwXoMgq2ryvySiCvJysh/V4N45pt3c/CM/eaNfKIAzAcZ1S+2v+bJkk/
+EtAfyjz9zLIEt7kEtS3sMz0kOSBj/BtIfZZDNc2da9a7ZQixyXIeSLF8TAKoKmJx
+5BnqcGUJ0wKBgAj1VVXCHn1yDdorGkp7cR4CtLn979ALuJZWXaqa/zV07Vb1p2Ru
+pbJoKkrrWlyWtJb+7O3IvhD/aoFK18De4T7MRYGE4yCJnTZYZZBRFVW7dYh68J1Z
+AMJtrBr4L/Gj8Vp1Ic7QcWcml9QObxEqx9RNTKsSGls1I8pQuO9B3chpAoGAKSN6
+V/vzv+DMLz7LQMsZXblFMlYVqRjV5l9heIMFFsfE2yVNWX/rZuzUdMWUg4igY8Wp
+cGMwQc4l+HHzJ33kVhDFgfirOhA6Tkl7F3cLizFrwX0B739d/R3e4lPSsSm2S3As
+KqpxPyWMdM89Pu7tU9z5ATnHdWyP/m9B3nxTYO8CgYAk7qutqXjetCj0KKfQnx9Y
+SP2O0iuXthBhvtdVowKnKJFTBqqX1bd5DLpLm8AXj/swhW4aA/FzLJBN4xWlRQA/
+pffdWIyY0kxr7NTrGERS3/NzZn3OtA+85PNtyLK7igfoAa6fX73kaiucjnU+xKO1
+TkWfwIxYbn4bWYCOoetDYg==
+-----END PRIVATE KEY-----
+`;// current active challengekeyid (backwards compatibility)
 /** @type {number} */
 exports.challengekeyid = 4;
+
+
+
 
 /**
  * DBs.
