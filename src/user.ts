@@ -100,13 +100,13 @@ export class Session {
 			this.context.setHeader(
 				"Set-Cookie",
 				`sid=${encodeURIComponent(`,,${this.sidhash}`)}; ` +
-				`Max-Age=0; Domain=${Config.routes.root}; Path=/; Secure; SameSite=None`
+				`Max-Age=0; Domain=${Config.routes.root}; Path=/; Secure; SameSite=Lax`
 			);
 		} else {
 			this.context.setHeader(
 				"Set-Cookie",
 				`sid=;` +
-				`Max-Age=0; Domain=${Config.routes.root}; Path=/; Secure; SameSite=None`
+				`Max-Age=0; Domain=${Config.routes.root}; Path=/; Secure; SameSite=Lax`
 			);
 		}
 	}
@@ -119,7 +119,7 @@ export class Session {
 		const rawsid = encodeURIComponent([name, this.session, this.sidhash].join(','));
 		this.context.setHeader(
 			'Set-Cookie',
-			`sid=${rawsid}; Max-Age=31363200; Domain=${Config.routes.root}; Path=/; Secure; SameSite=None`
+			`sid=${rawsid}; Max-Age=31363200; Domain=${Config.routes.root}; Path=/; Secure; SameSite=Lax`
 		);
 	}
 
@@ -475,7 +475,7 @@ export class Session {
 		const body = this.context.body;
 
 		// see if we're logged in
-		const scookie = body.sid || this.cookies.get('sid');
+		const scookie = decodeURIComponent(body.sid || this.cookies.get('sid') || '');
 		if (body.sid) {
 			this.context.response.setHeader('Access-Control-Allow-Origin', '*');
 		}

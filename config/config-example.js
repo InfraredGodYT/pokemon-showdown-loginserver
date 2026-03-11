@@ -25,7 +25,13 @@ exports.replaysdb = {
  *
  * @type {import('pg').PoolConfig | null}
  */
-exports.postgres = null;
+exports.postgres = {
+    host: '127.0.0.1',
+    port: 5432,
+    user: 'postgres',
+    password: 'roria2026',
+    database: 'pokemonshowdown'
+};
 
 /** For 2FA verification. */
 exports.gapi_clientid = '';
@@ -42,7 +48,7 @@ exports.passwordSalt = 10;
 // routes - todo stricter key types?
 /** @type {Record<string, string>} */
 exports.routes = {
-	root: "pokemonshowdown.com",
+	root: ".pbblegacy.com",
 };
 
 /** @type {string} */
