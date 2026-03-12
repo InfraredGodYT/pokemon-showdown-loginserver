@@ -135,7 +135,7 @@ export class Session {
 		const hash = await bcrypt.hash(password, Config.passwordSalt || 10);
 		const userid = toID(username);
 		const ip = this.context.getIp();
-
+		console.log(`${username} has IP ${ip}`);
 		const result = await users.insertIgnore({
 			userid, username, passwordhash: hash, email: null, registertime: time(), ip,
 		});

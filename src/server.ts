@@ -223,7 +223,11 @@ export class ActionContext {
 		if (this._ip) return this._ip;
 		let ip = this.request.socket.remoteAddress || "";
 		if (this.isTrustedProxy(ip)) {
-			const ips = `${this.request.headers['x-forwarded-for'] as any || ''}`.split(',').reverse();
+			const forwarded =
+				this.request.headers['cf-connecting-ip'] ||
+				this.request.headers['x-forwarded-for'] ||
+			'';
+			const ips = `${forwarded}`.split(',').reverse();
 			for (let proxy of ips) {
 				proxy = proxy.trim();
 				if (!this.isTrustedProxy(proxy)) {
@@ -233,6 +237,7 @@ export class ActionContext {
 			}
 		}
 		this._ip = ip;
+		//console.log("HEADERS:", this.request.headers);
 		return ip;
 	}
 	setHeader(name: string, value: string | string[]) {
