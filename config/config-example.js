@@ -1,24 +1,16 @@
 /** For the login and ladder databases */
 exports.mysql = {
-	charset: "utf8",
-	database: "ps",
-	password: "",
-	host: 'localhost',
-	user: "root",
-	socketPath: '',
-	prefix: "ntbb_",
+  host: "127.0.0.1",
+  user: "showdown",
+  password: "strongpassword",
+  database: "ps",
+  prefix: "ntbb_",
+  socketPath: '',
+  charset: "utf8",
 };
 
 /** For the replay databases */
-exports.replaysdb = {
-	charset: "utf8",
-	database: "ps",
-	password: "",
-	host: 'localhost',
-	user: "root",
-	socketPath: '',
-	prefix: "ntbb_",
-};
+exports.replaysdb = exports.mysql;
 
 /**
  * For the friends database
